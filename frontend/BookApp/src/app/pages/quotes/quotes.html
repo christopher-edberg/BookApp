@@ -1,0 +1,34 @@
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-5">
+  <h1 >My Quotes</h1>
+  @if (quotes.length <5){
+  <a class="btn btn-primary "routerLink="/quotes/create">
+    Add new quote
+  </a> } @else {
+    <p class="text-muted">
+      You have reached the limit of 5 quotes.
+    </p>
+  }
+    </div>
+  @for (quote of quotes; track quote.id) {
+  <div class="card mb-3">
+    <div class="card-body">
+      <blockquote class="blockquote mb-2">
+        <p>"{{ quote.text }}"</p>
+      </blockquote>
+
+      <p class="mb-3">
+        — {{ quote.author }}
+      </p>
+
+      <a class="btn btn-warning" [routerLink]="['/quotes/edit', quote.id]">
+        Edit
+      </a>
+
+      <button type="button"  class="btn btn-danger ms-2"(click)="deleteQuote(quote.id)">
+        Delete
+      </button>
+    </div>
+  </div>
+  }
+</div>

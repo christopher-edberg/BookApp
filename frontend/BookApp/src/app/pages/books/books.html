@@ -1,0 +1,37 @@
+
+
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <h1>Books</h1>
+    @if (auth.LoggedIn()){
+    <a class="btn btn-primary" routerLink="/books/create">
+      Add new book
+    </a>
+    }
+  </div>
+
+  @for (book of books; track book.id) {
+  <div class="card mb-2">
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ book.title }}
+      </h5>
+
+      <p class="card-text">
+        Author: {{ book.author }}
+      </p>
+      <p class="card-text">
+        Publication date: {{ book.publicationDate | date: 'dd-MM-yyyy'}}
+      </p>
+      @if (auth.LoggedIn()){
+      <a class="btn btn-warning" [routerLink]="['/books/edit', book.id]">
+        Edit
+      </a>
+      <button type="button" class="btn btn-danger ms-2" (click)="deleteBook(book.id)">
+        Delete
+      </button>
+      }
+    </div>
+  </div>
+  }
+</div>

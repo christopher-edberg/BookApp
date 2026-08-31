@@ -1,0 +1,39 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-5">
+      <div class="card shadow">
+        @if (errorM) {
+        <div class="alert alert-danger">
+          {{ errorM }}
+        </div>
+        }
+        <div class="card-body">
+          <h1 class="card-title text-center mb-4">
+            Create Account
+          </h1>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="username" class="form-label">
+                Username
+              </label>
+
+              <input id="username" type="text" class="form-control" formControlName="username">
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">
+                Password
+              </label>
+
+              <input id="password"  type="password"  class="form-control"  formControlName="password">
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

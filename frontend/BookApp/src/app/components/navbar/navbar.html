@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+
+    <a class="navbar-brand" routerLink="/books">
+      <fa-icon [icon]="faBook"></fa-icon>
+      BookAPP
+    </a>
+    <button class="navbar-toggler"type="button"data-bs-toggle="collapse"data-bs-target="#menu"aria-controls="menu"aria-expanded="false"aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/books">
+            <fa-icon [icon]="faBook"></fa-icon>Books
+          </a>
+        </li>
+
+        @if (auth.LoggedIn()) {
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/quotes">
+            <fa-icon [icon]="faQuoteLeft"></fa-icon>My Quotes
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-link btn btn-link" type="button"(click)="logout()">
+            <fa-icon [icon]="faRightFromBracket"></fa-icon>Logout
+          </button>
+        </li>
+        } @else {
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">
+            <fa-icon [icon]="faRightToBracket"></fa-icon>Login
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register">
+            <fa-icon [icon]="faUserPlus"></fa-icon>Register
+          </a>
+        </li>
+        }
+
+      </ul>
+
+      <button class="btn btn-outline-secondary"type="button"  (click)="darkMode()">
+        @if (darktoggle) {
+        <fa-icon [icon]="faSun"></fa-icon>
+        Light mode
+        } @else {
+        <fa-icon [icon]="faMoon"></fa-icon>
+        Dark mode
+        }
+      </button>
+
+    </div>
+  </div>
+</nav>

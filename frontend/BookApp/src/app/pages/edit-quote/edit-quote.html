@@ -1,0 +1,36 @@
+<div class="container py-4">
+  <h1 class="mb-4">Redigera citat</h1>
+  <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()">
+    <div class="mb-1">
+      <label for="text" class="form-label">
+        Quote
+      </label>
+      <textarea id="text" class="form-control" formControlName="text" rows="4"></textarea>
+
+      @if (quoteForm.controls.text.invalid && quoteForm.controls.text.touched) {
+      <div class="text-danger mt-1">
+        Quote is required.
+      </div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="author" class="form-label">
+        Author
+      </label>
+      <input type="text" id="author"  class="form-control" formControlName="author">
+
+      @if (quoteForm.controls.author.invalid && quoteForm.controls.author.touched) {
+      <div class="text-danger mt-1">
+        Author is required.
+      </div>
+      }
+    </div>
+    <button type="submit" class="btn btn-primary"  [disabled]="quoteForm.invalid">
+      Save changes
+    </button>
+    <a routerLink="/quotes" class="btn btn-secondary ms-2">
+      Cancel
+    </a>
+  </form>
+</div>
