@@ -24,7 +24,7 @@ jobs:
           dotnet-version: '9.x'
 
       - name: Build with dotnet
-        run: dotnet build BookApp/BookApp/BookApp --configuration Release
+        run: dotnet build BookApp/BookApp/BookApp.csproj --configuration Release
 
       - name: dotnet publish
         run: dotnet publish BookApp/BookApp/BookApp.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
