@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://placeholder/api'
+  apiUrl: 'https://bookapp-hag0cebpgmc3dchw.swedencentral-01.azurewebsites.net/api'
 };
