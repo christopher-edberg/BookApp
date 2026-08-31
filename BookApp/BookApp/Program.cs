@@ -36,7 +36,6 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AngularPolicy", policy =>
     {
         policy
-            //.AllowAnyOrigin()
             .WithOrigins("https://polite-ocean-05d049210.3.azurestaticapps.net")
             .AllowAnyHeader()
             .AllowAnyMethod();
@@ -52,7 +51,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseCors("AngularPolicy");
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
