@@ -21,6 +21,9 @@
         Author: {{ book.author }}
       </p>
       <p class="card-text">
+        Review: {{ book.review }}
+      </p>
+      <p class="card-text">
         Publication date: {{ book.publicationDate | date: 'dd-MM-yyyy'}}
       </p>
       @if (auth.LoggedIn()){

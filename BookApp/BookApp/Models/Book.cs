@@ -8,5 +8,7 @@ public class Book
 
     public string Author { get; set; } = string.Empty;
 
+    public string Review { get; set; } = string.Empty;
+
     public DateTime PublicationDate { get; set; }
 }

@@ -36,7 +36,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AngularPolicy", policy =>
     {
         policy
-            .WithOrigins("https://polite-ocean-05d049210.3.azurestaticapps.net")
+            .WithOrigins("https://polite-ocean-05d049210.3.azurestaticapps.net","http://localhost:4200")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });

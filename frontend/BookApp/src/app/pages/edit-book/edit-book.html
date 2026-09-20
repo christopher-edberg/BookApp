@@ -16,6 +16,16 @@
       <input id="author" type="text" class="form-control" formControlName="author">
     </div>
 
+    <label for="text" class="form-label">
+      Review
+    </label>
+    <textarea id="review" class="form-control" formControlName="review" rows="4"></textarea>
+    @if (bookForm.controls['review'].invalid && bookForm.controls['review'].touched) {
+    <div class="text-danger mt-1">
+      Review required
+    </div>
+    }
+
     <div class="mb-3">
       <label for="publicationDate" class="form-label">
         Publication date

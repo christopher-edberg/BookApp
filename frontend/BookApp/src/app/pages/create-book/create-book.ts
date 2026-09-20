@@ -22,6 +22,7 @@ export class CreateBook {
 
       title: ['', Validators.required],
       author: ['', Validators.required],
+      review: ['', Validators.required],
       publicationDate: ['', Validators.required]
 
     });
@@ -34,6 +35,7 @@ export class CreateBook {
     const data: CreateBookModel = {
       title: this.bookForm.value.title!,
       author: this.bookForm.value.author!,
+      review: this.bookForm.value.review!,
       publicationDate: this.bookForm.value.publicationDate!
     };
     this.bookService.createBook(data).subscribe({

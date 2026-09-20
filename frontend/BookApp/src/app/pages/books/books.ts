@@ -32,6 +32,7 @@ export class Books {
 
       title: ['', Validators.required],
       author: ['', Validators.required],
+      review: ['', Validators.required],
       publicationDate: ['', Validators.required]
     });
   }
@@ -56,6 +57,7 @@ export class Books {
     this.bookForm.patchValue({
       title: book.title,
       author: book.author,
+      review: book.review,
       publicationDate: book.publicationDate
     });
   }
@@ -86,6 +88,7 @@ export class Books {
       const data: UpdateBook = {
         title: this.bookForm.value.title!,
         author: this.bookForm.value.author!,
+        review: this.bookForm.value.review!,
         publicationDate: this.bookForm.value.publicationDate!
       };
 
@@ -105,6 +108,7 @@ export class Books {
       const data: CreateBook = {
         title: this.bookForm.value.title!,
         author: this.bookForm.value.author!,
+        review: this.bookForm.value.review!,
         publicationDate: this.bookForm.value.publicationDate!
       };
       this.bookService.createBook(data).subscribe({

@@ -33,7 +33,7 @@ namespace BookApp.Controllers
                 Title = dto.Title,
                 Author = dto.Author,
                 PublicationDate = dto.PublicationDate,
-
+                Review = dto.Review,
             };
             _context.Books.Add(book);
 
@@ -54,6 +54,7 @@ namespace BookApp.Controllers
             existingBook.Title = book.Title;
             existingBook.Author = book.Author;
             existingBook.PublicationDate = book.PublicationDate;
+            existingBook.Review = book.Review;
 
             await _context.SaveChangesAsync();
 
@@ -92,7 +93,8 @@ namespace BookApp.Controllers
                 Id = book.Id,
                 Title = book.Title,
                 Author = book.Author,
-                PublicationDate = book.PublicationDate
+                PublicationDate = book.PublicationDate,
+                Review = book.Review,
             };
 
             return Ok(dto);
